@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+
+    <!-- 사용자가 마우스 또는 키보드로 어떠한 행동을 했을때 다른 결과값을 가져옴 
+    css의 radio checkbox는 이벤트가 아님 / hover만 css에서 유일한 이벤트-->
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .on{
+            background-color: gray;
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="box"></div>
+
+    <script>
+
+        // * mouse event *
+        // mouseDown: 마우스를 눌렀을 때
+        // mouseaUp: 마우스를 뗏을 때
+        // mouseDown + mouseUp = click
+        // dblClick: 더블클릭
+        // mouseEnter: 엘리먼트에 마우스가 올라 갔을때 
+        // mouseLeave: 엘리먼트에 마우스가 벗어났을때
+        // mouseMove: 엘리먼트 내에서 마우스가 움직였을때
+
+        const boxEl = document.querySelector('.box')
+
+        // 선택자.addEventListener('이벤트명', 실행할 함수)
+        // 함수를 정의 => 일반, 화살표 가능
+        // boxEl.addEventListener('click', function(){
+        //     boxEl.classList.add('on')
+        // })
+
+        // boxEl.addEventListener('click', () => {
+        //     boxEl.classList.add('on')
+        // })
+
+        // boxEl.addEventListener('click', () => boxEl.classList.add('on'))
+        // 화살표 함수는 중괄호가 없으면 자동으로 리턴, 
+        // 적을(반환할) 값이 하나밖에 없을때 중괄호를 빼고 사용
+
+        const handleClick = () => {
+            boxEl.classList.add('on')
+        }
+        boxEl.addEventListener('click', handleClick)
+
+        // 함수를 따로 지정하고 함수명을 호출가능, 함수 내용이 길어지니 따로 분리
+        // 함수를 먼저 쓰고 이벤트 추가(이벤트끼리, 핸들러(함수)끼리 모아놓기 = 분해!)
+        // 핸들러 = 이벤트를 적용한 함수
+
+    </script>
+</body>
+</html>
